@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'instagram_body.dart';
+
 void main() {
   runApp(const InstagramCloneApp());
 }
@@ -26,13 +28,13 @@ class InstagramCloneApp extends StatelessWidget {
             centerTitle: false,
             actions: [
               IconButton(
-                icon: const Icon(Icons.favorite_outline),
+                icon: const Icon(Icons.favorite_outline, size: 32),
                 onPressed: () {
                   print("favorite_outline");
                 },
               ),
               IconButton(
-                icon: const Icon(CupertinoIcons.paperplane),
+                icon: const Icon(CupertinoIcons.paperplane, size: 32,),
                 onPressed: () {
                   print("paperplane");
                 },
@@ -49,6 +51,6 @@ class InstagramCloneHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return InstagramBody();
   }
 }
