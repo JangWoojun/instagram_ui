@@ -5,6 +5,53 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("search screen"),);
+    return const SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SearchTextBar(),
+            SearchGrid(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SearchTextBar extends StatelessWidget {
+  const SearchTextBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60,
+      child: TextField(
+        cursorColor: Colors.black,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.search),
+          hintText: "검색",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: BorderSide(color: Colors.grey.shade200, width: 1)
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.grey.shade200, width: 1)
+          ),
+          contentPadding: EdgeInsets.all(0),
+          filled: true,
+          fillColor: Colors.grey.shade200,
+        ),
+      ),
+    );
+  }
+}
+
+class SearchGrid extends StatelessWidget {
+  const SearchGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
