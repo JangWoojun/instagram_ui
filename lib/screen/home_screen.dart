@@ -28,7 +28,7 @@ class StoryArea extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
           children:
-              List.generate(10, (index) => UserStory(userName: "user $index", randomImage: "https://picsum.photos/80"))),
+              List.generate(10, (index) => UserStory(userName: "user $index", randomImage: "https://picsum.photos/8$index"))),
     );
   }
 }
