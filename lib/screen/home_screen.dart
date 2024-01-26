@@ -80,6 +80,8 @@ final feedDataList = List.generate(
     20,
     (index) => FeedData(
         userName: "user$index",
+        userImage: "https://picsum.photos/8$index",
+        feedImage: "https://picsum.photos/280$index",
         likeCount: Random().nextInt(100),
         content: "content $index"));
 
@@ -100,12 +102,13 @@ class FeedItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue.shade300,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: Image.network(
+                      feedData.userImage,
+                      width: 30,
+                      height: 30,
+                      fit: BoxFit.cover,
                     ),
                   ),
                   const SizedBox(
@@ -121,10 +124,11 @@ class FeedItem extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        Container(
+        Image.network(
+          feedData.feedImage,
           width: double.infinity,
           height: 280,
-          color: Colors.indigo.shade300,
+          fit: BoxFit.cover,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
