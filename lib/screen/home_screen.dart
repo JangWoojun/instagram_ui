@@ -67,11 +67,13 @@ class UserStory extends StatelessWidget {
 
 class FeedData {
   final String userName;
+  final String userImage;
+  final String feedImage;
   final int likeCount;
   final String content;
 
   FeedData(
-      {required this.userName, required this.likeCount, required this.content});
+      {required this.userName, required this.userImage, required this.feedImage, required this.likeCount, required this.content});
 }
 
 final feedDataList = List.generate(
