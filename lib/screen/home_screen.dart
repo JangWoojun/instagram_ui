@@ -28,15 +28,17 @@ class StoryArea extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
           children:
-              List.generate(10, (index) => UserStory(userName: "user $index"))),
+              List.generate(10, (index) => UserStory(userName: "user $index", randomImage: "https://picsum.photos/100"))),
     );
   }
 }
 
 class UserStory extends StatelessWidget {
   final String userName;
+  final String randomImage;
 
-  const UserStory({required this.userName, super.key});
+  const UserStory(
+      {required this.userName, required this.randomImage, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +50,8 @@ class UserStory extends StatelessWidget {
             width: 80,
             height: 80,
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            decoration: BoxDecoration(
-                color: Colors.blue.shade300,
-                borderRadius: BorderRadius.circular(40)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
+            child: Image.network(randomImage)
           ),
           Text(userName)
         ],
