@@ -28,7 +28,7 @@ class StoryArea extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
           children:
-              List.generate(10, (index) => UserStory(userName: "user $index", randomImage: "https://picsum.photos/100"))),
+              List.generate(10, (index) => UserStory(userName: "user $index", randomImage: "https://picsum.photos/80"))),
     );
   }
 }
@@ -47,11 +47,16 @@ class UserStory extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 80,
-            height: 80,
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
-            child: Image.network(randomImage)
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(40),
+              child: Image.network(
+                  randomImage,
+                  width: 80,
+                  height: 80,
+                  fit: BoxFit.cover,
+              ),
+            )
           ),
           Text(userName)
         ],
